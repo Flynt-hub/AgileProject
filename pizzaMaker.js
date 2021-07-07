@@ -1,4 +1,5 @@
 var pseudo = document.getElementById("pseudo");
+var score = 0;
 var tomatePrepared = 0;
 var jambonPrepared = 0;
 var ananasPrepared = 0;
@@ -49,4 +50,10 @@ function preparePizza(){
 function burnPizzas(){
     pizzaBurned = parseInt(document.getElementById("pizzaToBurn").value);
     document.getElementById("hawaienBurned").innerHTML = pizzaBurned;
+}
+
+function dispScore(){
+    document.getElementById('score').style.display = 'block';
+    document.getElementById('score').value = score;
+    var restes = document.getElementById('');
 }
