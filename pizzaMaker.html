@@ -12,7 +12,7 @@
         <form>
             <label for="pseudo">Pseudo:</label><br>
             <input type="text" id="pseudo" name="pseudo" required value="Dark Vador"><br>
-            <button type="button" onclick="getPseudo()">Start</button>
+            <button type="button" id="buttonCreatePseudo" onclick="getPseudo()">Start</button>
           </form> 
     </div>
 
@@ -22,6 +22,7 @@
             <p>Base Tomate : <span id="tomatePrepared"></span></p>
             <p>Jambon : <span id="jambonPrepared"></span></p>
             <p>Ananas : <span id="ananasPrepared"></span></p>
+            <p>Pizza froide : <span id="pizzaPrepared"></span></p>
         </div>
         <div id="Ingredients">
             <h3>Création Ingrédients</h3>
@@ -32,7 +33,7 @@
                 <label for="ingredient">Jambon</label><br>
                 <input type="radio" id="ananas" name="ingredient" value="1">
                 <label for="ingredient">Ananas</label> 
-                <button type="button" onclick="addIngredients()">Créer</button>
+                <button type="button" id="buttonCreateIngredient" onclick="addIngredients()">Créer</button>
             </form> 
         </div>
         <div id="PizzaCreated">
@@ -44,10 +45,21 @@
                 <label for="jambonPizza">Jambon</label><br>
                 <input type="number" id="ananasPizza" name="ananasPizza" max="3" min="0" value="0">
                 <label for="ananasPizza">Ananas</label> 
-                <button type="button" onclick="preparePizza()">Créer</button>
+                <button type="button" id="buttonCreatePizza" onclick="preparePizza()">Créer</button>
             </form> 
         </div>
-
+        <div id="Four">
+            <h3>Four</h3>
+            <form>
+                <input type="number" id="pizzaToBurn" name="pizzaToBurn" max="3" min="0" value="0">
+                <label for="pizzaToBurn">Pizza à enfourner</label><br>
+                <button type="button" id="buttonFour" onclick="burnPizzas()">Cuire</button>
+            </form> 
+        </div>
+        <div id="TotalPizzaDone">
+            <h3>Pizza finie</h3>
+            <p>Hawaïenne : <span id="hawaienBurned"></span></p>
+        </div>
     </div>
 
     <div id="End">
