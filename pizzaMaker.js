@@ -48,8 +48,16 @@ function preparePizza(){
 }
 
 function burnPizzas(){
-    pizzaBurned = parseInt(document.getElementById("pizzaToBurn").value);
-    document.getElementById("hawaienBurned").innerHTML = pizzaBurned;
+    var pizza = parseInt(document.getElementById("pizzaToBurn").value);
+
+    if( pizza >0 && pizza <= pizzaPrepared){
+        pizzaBurned = pizza;
+        pizzaPrepared -= pizzaBurned;
+        document.getElementById("hawaienBurned").innerHTML = pizzaBurned;
+    }
+    else{
+        alert("Vous n'avez pas autant de pizza prête !");
+    }
 }
 
 function dispScore(){
