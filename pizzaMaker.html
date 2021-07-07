@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pizza Maker</title>
+    <script src="pizzaMaker.js"></script>
+</head>
+
+<body>
+
+    <div id="Start">
+        <form>
+            <label for="pseudo">Pseudo:</label><br>
+            <input type="text" id="pseudo" name="pseudo" required value="Dark Vador"><br>
+            <button type="button" onclick="getPseudo()">Start</button>
+          </form> 
+    </div>
+
+    <div id="Game">
+        <div id="IngredientsDispo">
+            <h3>Ingrédients Disponibles :</h3>
+            <p>Base Tomate : <span id="tomatePrepared"></span></p>
+            <p>Jambon : <span id="jambonPrepared"></span></p>
+            <p>Ananas : <span id="ananasPrepared"></span></p>
+        </div>
+        <div id="Ingredients">
+            <h3>Création Ingrédients</h3>
+            <form>
+                <input type="radio" id="tomate" name="ingredient" value="1">
+                <label for="ingredient">Base Tomate</label><br>
+                <input type="radio" id="jambon" name="ingredient" value="1">
+                <label for="ingredient">Jambon</label><br>
+                <input type="radio" id="ananas" name="ingredient" value="1">
+                <label for="ingredient">Ananas</label> 
+                <button type="button" onclick="addIngredients()">Créer</button>
+            </form> 
+        </div>
+        <div id="PizzaCreated">
+            <h3>Préparer une Pizza hawaïenne</h3>
+            <form>
+                <input type="number" id="tomatePizza" name="tomatePizza" max="1" min="0" value="0">
+                <label for="tomatePizza">Base Tomate</label><br>
+                <input type="number" id="jambonPizza" name="jambonPizza" max="3" min="0" value="0">
+                <label for="jambonPizza">Jambon</label><br>
+                <input type="number" id="ananasPizza" name="ananasPizza" max="3" min="0" value="0">
+                <label for="ananasPizza">Ananas</label> 
+                <button type="button" onclick="preparePizza()">Créer</button>
+            </form> 
+        </div>
+
+    </div>
+
+    <div id="End">
+
+    </div>
+
+</body>
+
+</html>
