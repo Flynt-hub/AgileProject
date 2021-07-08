@@ -10,7 +10,8 @@ var pizzaBurned = 0;
 
 
 function start(){
-    pseudo = document.getElementById("pseudo");
+    pseudo = document.getElementById("pseudo").value;
+    document.getElementById("dispPseudo").innerText = pseudo;
     document.getElementById("Game").style.display = "block";
     document.getElementById("Start").style.display = "none";
 }
