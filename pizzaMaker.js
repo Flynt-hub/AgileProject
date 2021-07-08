@@ -9,12 +9,9 @@ var pizzaPrepared = 0;
 var pizzaBurned = 0;
 function startGame(){
     document.getElementById('Start').style.display = 'none';
-    pseudo = document.getElementById("pseudo");
-    document.getElementById('IngredientsPrepared').style.display = 'block';
-    document.getElementById('Ingredients').style.display = 'block;';
-    document.getElementById('PizzaCreated').style.display = 'block';
-    document.getElementById('Four').style.display = 'block';
-    document.getElementById('TotalPizzaDone').style.display = 'block';
+    pseudo = document.getElementById("pseudo").value;
+    document.getElementById('dispPseudo').innerHTML = pseudo;
+    document.getElementById('Game').style.display = 'block';
 
 
 }
