@@ -101,8 +101,10 @@ function setEvents()
 {
     let inputsNumber = document.getElementsByClassName('delayOnInput') ;
     let oven = document.getElementsByClassName('delayOnOven') ;
+    
     setDelayOnInputs(inputsNumber, 1) ;
     setDelayOnInputs(oven, 30) ;
+    setEventUncheckRadioButton()
 }
 
 function setDelayOnInputs(targetTag, delayTime)
@@ -117,4 +119,19 @@ function setDelayOnInputs(targetTag, delayTime)
             }, (delayTime * 1000));
         }, false);
     }
+}
+
+function setEventUncheckRadioButton()
+{
+    let radioInputs = document.getElementsByClassName('radioButton') ;
+    let createButton = document.getElementById('buttonCreateIngredient') ;
+    createButton.addEventListener('click', ()=>{
+        for (let i = 0; i < radioInputs.length; ++i) 
+        {
+            if( radioInputs[i].checked == true )
+                {
+                    radioInputs[i].checked = false ;
+                }
+        }
+    }, false ) ;
 }
