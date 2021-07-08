@@ -14,58 +14,72 @@
 
 <body>
 
-    <div class="container m4">
+    <div class="container mt-4 ">
+
         <div id="Start" class="card border border-primary mb-3" style="max-width: 18rem;">
             <div class="card-header text-white bg-primary ">Pizza Maker &#127829;</div>
             <div class="card-body">
                 <form>
                     <label for="pseudo">Pseudo:</label><br>
-                    <input type="text" id="pseudo" name="pseudo" required value="Dark Vador"><br>
-                    <button type="button" id="buttonCreatePseudo" onclick="startGame()">Start</button>
+                    <input type="text" id="pseudo" name="pseudo" required="required" value="Dark Vador">
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-primary btn-lg mt-3" type="button" id="buttonCreatePseudo" onclick="start()">Start</button>
+                    </div>
                 </form> 
             </div>
         </div>
 
-        <div id="Game" style="display : none;">
-            <h1>Bienvenue, <span id="dispPseudo"></span></h1>
+        <div id="Game" style="display: none;">
+            <h1>Time is ticking <span id="dispPseudo"></span></h1>
             <div id="IngredientsPrepared" class="card border border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header text-white bg-secondary">
                     Ingrédients Disponibles
                 </div>
                 <div class="card-body">
-                    <p>Base Tomate &#127813; : <span id="tomatePrepared">0</span></p>
-                    <p>Jambon &#129385; : <span id="jambonPrepared">0</span></p>
-                    <p>Ananas &#127821; : <span id="ananasPrepared">0</span></p>
-                    <p>Pizza froide &#127829; : <span id="pizzaPrepared">0</span></p>
+                    <p>Base Tomate : <span id="tomatePrepared">0</span><span id="tomatoIcons"></span></p>
+                    <p>Jambon : <span id="jambonPrepared">0</span><span id="hamIcon"></span></p>
+                    <p>Ananas : <span id="ananasPrepared">0</span><span id="ananasIcon"></span></p>
+                    <p>Pizza froide &#127829; : <span id="pizzaPrepared">0</span><span id="pizzaIcon"></span></p>
                 </div>
             </div>
 
             <div id="Ingredients" class="card border border-success mb-3" style="max-width: 18rem;">
                 <div class="card-header text-white bg-success">Création Ingrédients</div>
                 <div class="card-body">
-                    <form>
-                        <input type="radio" id="tomate" name="ingredient" class="radioButton" value="1">
-                        <label for="ingredient">Base Tomate &#127813;</label><br>
-                        <input type="radio" id="jambon" name="ingredient" class="radioButton" value="1">
-                        <label for="ingredient">Jambon 	&#129385;</label><br>
-                        <input type="radio" id="ananas" name="ingredient" class="radioButton" value="1">
-                        <label for="ingredient">Ananas 	&#127821;</label> 
-                        <button type="button" id="buttonCreateIngredient" class="delayOnInput" onclick="addIngredients()">Créer</button>
-                    </form> 
+                    <div class="form-check">
+                        <form>
+                            <input class="form-check-input radioButton" type="radio" id="tomate" name="ingredient" value="1">
+                            <label class="form-check-label" for="ingredient">Base Tomate &#127813;</label><br>
+                            <input class="form-check-input radioButton" type="radio" id="jambon" name="ingredient" value="1">
+                            <label class="form-check-label" for="ingredient">Jambon 	&#129385;</label><br>
+                            <input class="form-check-input radioButton" type="radio" id="ananas" name="ingredient" value="1">
+                            <label class="form-check-label" for="ingredient">Ananas 	&#127821;</label> 
+                            <br>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" id="buttonCreateIngredient" class="delayOnInput mt-2 btn btn-success" onclick="addIngredients()">Créer</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
 
-            <div id="PizzaCreated" class="card border border-warning" style="max-width: 18rem;">
+            <div id="PizzaCreated" class="card border border-warning" style="max-width: 26rem;">
                 <div class="card-header text-white bg-warning">Préparer une Pizza hawaïenne &#127829;</div>
                 <div class="card-body">
                     <form>
+                        <label for="tomatePizza">Base Tomate &#127813;</label>
                         <input type="number" id="tomatePizza" name="tomatePizza" class="delayOnInput" max="1" min="0" value="0">
-                        <label for="tomatePizza">Base Tomate &#127813;</label><br>
+                        <br>
+                        <label for="jambonPizza">Jambon &#129385;</label>
                         <input type="number" id="jambonPizza" name="jambonPizza" class="delayOnInput" max="3" min="0" value="0">
-                        <label for="jambonPizza">Jambon &#129385;</label><br>
+                        <br>
+                        <label for="ananasPizza">Ananas &#127821;</label>
                         <input type="number" id="ananasPizza" name="ananasPizza" class="delayOnInput" max="3" min="0" value="0">
-                        <label for="ananasPizza">Ananas &#127821;</label> 
-                        <button type="button" id="buttonCreatePizza" class="delayOnInput" onclick="preparePizza()">Créer</button>
+                        <br> 
+                        <div class="d-flex justify-content-center">
+                            <button type="button" id="buttonCreatePizza" class="delayOnInput mt-2 text-white btn btn-warning" onclick="preparePizza()">Créer</button>
+                        </div>
                     </form> 
                 </div>
             </div>
@@ -74,9 +88,12 @@
                 <div class="card-header text-white bg-danger" id="divFour">Four</div>
                 <div class="card-body">
                     <form>
+                        <label for="pizzaToBurn">Pizza à enfourner &#127829;</label>
                         <input type="number" id="pizzaToBurn" name="pizzaToBurn" max="3" min="0" value="0">
-                        <label for="pizzaToBurn">Pizza à enfourner &#127829;</label><br>
-                        <button type="button" id="buttonFour" class="delayOnOven" onclick="burnPizzas()">Cuire</button>
+                        <br>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" id="buttonFour" class="delayOnOven mt-2 btn btn-danger" onclick="burnPizzas()">Cuire</button>
+                        </div>
                     </form> 
                 </div>
             </div>
@@ -89,7 +106,7 @@
             </div>
         </div>
 
-        <div id="End" class="card  border border-primary mb-3" style="max-width: 18rem;display: none;">
+        <div id="End" class="card border border-primary mb-3" style="max-width: 18rem; display: none;">
             <div class="card-header text-white bg-primary">TIMES'UP !</div>
                 <div class="card-body">
                     <p>Score : <span id="score"></span></p>
