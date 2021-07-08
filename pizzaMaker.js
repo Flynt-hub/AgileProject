@@ -73,6 +73,9 @@ function preparePizza(){
             pizzaPrepared += 1;
             document.getElementById("pizzaPrepared").innerHTML = pizzaPrepared;
             document.getElementById("pizzaIcon").innerHTML += "&#127829 " ;
+            document.getElementById("tomatePizza").value = 0;
+            document.getElementById("jambonPizza").value = 0;
+            document.getElementById("ananasPizza").value = 0;
         }
     }
     else{
