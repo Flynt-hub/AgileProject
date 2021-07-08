@@ -50,7 +50,7 @@
                         <label for="ingredient">Jambon 	&#129385;</label><br>
                         <input type="radio" id="ananas" name="ingredient" value="1">
                         <label for="ingredient">Ananas 	&#127821;</label> 
-                        <button type="button" id="buttonCreateIngredient" onclick="addIngredients()">Créer</button>
+                        <button type="button" id="buttonCreateIngredient" class="delayOnInput" onclick="addIngredients()">Créer</button>
                     </form> 
                 </div>
             </div>
@@ -65,7 +65,7 @@
                         <label for="jambonPizza">Jambon &#129385;</label><br>
                         <input type="number" id="ananasPizza" name="ananasPizza" class="delayOnInput" max="3" min="0" value="0">
                         <label for="ananasPizza">Ananas &#127821;</label> 
-                        <button type="button" id="buttonCreatePizza" onclick="preparePizza()">Créer</button>
+                        <button type="button" id="buttonCreatePizza" class="delayOnInput" onclick="preparePizza()">Créer</button>
                     </form> 
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     <form>
                         <input type="number" id="pizzaToBurn" name="pizzaToBurn" max="3" min="0" value="0">
                         <label for="pizzaToBurn">Pizza à enfourner &#127829;</label><br>
-                        <button type="button" id="buttonFour" onclick="burnPizzas()">Cuire</button>
+                        <button type="button" id="buttonFour" class="delayOnOven" onclick="burnPizzas()">Cuire</button>
                     </form> 
                 </div>
             </div>

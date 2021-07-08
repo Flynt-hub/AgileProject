@@ -89,20 +89,22 @@ function calculScore(){
 
 function setEvents(e)
 {
-    setDelayOnInputs();
+    let inputsNumber = document.getElementsByClassName('delayOnInput') ;
+    let oven = document.getElementsByClassName('delayOnOven') ;
+    setDelayOnInputs(inputsNumber, 1) ;
+    setDelayOnInputs(oven, 30) ;
 }
 
-function setDelayOnInputs()
+function setDelayOnInputs(targetTag, delayTime)
 {
-    let inputsNumber = document.getElementsByClassName('ingredientNumberInput');
-    for(let i = 0; i < inputsNumber.length; ++i)
+    for(let i = 0; i < targetTag.length; ++i)
     {
-        inputsNumber[i].addEventListener('click', ()=>{
-            inputsNumber[i].disabled = true;
+        targetTag[i].addEventListener('click', ()=>{
+            targetTag[i].disabled = true;
             let timer = setTimeout(()=>{
-                inputsNumber[i].disabled = false;
+                targetTag[i].disabled = false;
                 clearTimeout(timer);
-            }, 1000);
+            }, (delayTime * 1000));
         }, false);
     }
 }
