@@ -1,13 +1,23 @@
 addEventListener('load', setEvents, false) ;
 
-var pseudo = document.getElementById("pseudo");
+var pseudo = "";
 var score = 0;
 var tomatePrepared = 0;
 var jambonPrepared = 0;
 var ananasPrepared = 0;
 var pizzaPrepared = 0;
 var pizzaBurned = 0;
+function startGame(){
+    document.getElementById('Start').style.display = 'none';
+    pseudo = document.getElementById("pseudo");
+    document.getElementById('IngredientsPrepared').style.display = 'block';
+    document.getElementById('Ingredients').style.display = 'block;';
+    document.getElementById('PizzaCreated').style.display = 'block';
+    document.getElementById('Four').style.display = 'block';
+    document.getElementById('TotalPizzaDone').style.display = 'block';
 
+
+}
 function addIngredients(){
     if(document.getElementById("tomate").checked){
         tomatePrepared += parseInt(document.getElementById("tomate").value);
@@ -87,7 +97,7 @@ function calculScore(){
     return score;
 }
 
-function setEvents(e)
+function setEvents()
 {
     let inputsNumber = document.getElementsByClassName('delayOnInput') ;
     let oven = document.getElementsByClassName('delayOnOven') ;
