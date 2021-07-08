@@ -88,7 +88,9 @@ function burnPizzas(){
     var pizza = parseInt(document.getElementById("pizzaToBurn").value);
 
     if( pizza >0 && pizza <= pizzaPrepared){
-        document.getElementById('divFour').className = "card border border-warnig mb-3";
+        document.getElementById('divFour').className = "card bg-danger mb-3 text-white";
+        document.getElementById('buttonFour').className = "delayOnOven mt-2 btn btn-danger";
+        
         pizzaBurned = pizza;
         pizzaPrepared -= pizzaBurned;
         document.getElementById("pizzaIcon").innerHTML = " " ;
@@ -96,7 +98,6 @@ function burnPizzas(){
             document.getElementById("pizzaIcon").innerHTML += "&#129385 " ;                
         }
         document.getElementById("hawaienBurned").innerHTML = pizzaBurned;
-       // document.getElementById('Four').className = "card border border-danger mb-3";
     }
     else{
         alert("Vous n'avez pas autant de pizza prête !");
@@ -105,6 +106,7 @@ function burnPizzas(){
 
 function dispScore(){
     var restes ="";
+    document.getElementById('Game').style.display = 'none';
     document.getElementById('score').style.display = 'block';
     document.getElementById('score').innerHTML = calculScore();
     document.getElementById('pizza').innerHTML= pizzaBurned;
@@ -133,12 +135,12 @@ function setEvents()
     let inputsNumber = document.getElementsByClassName('delayOnInput') ;
     let oven = document.getElementsByClassName('delayOnOven') ;
 
-    setDelayOnInputs(inputsNumber, 1) ;
-    setDelayOnInputs(oven, 30) ;
+    setDelayOnInputs(inputsNumber, 1, false) ;
+    setDelayOnInputs(oven, 30, true) ;
     setEventUncheckRadioButton()
 }
 
-function setDelayOnInputs(targetTag, delayTime)
+function setDelayOnInputs(targetTag, delayTime, isOven)
 {
     for(let i = 0; i < targetTag.length; ++i)
     {
@@ -147,6 +149,11 @@ function setDelayOnInputs(targetTag, delayTime)
             let timer = setTimeout(()=>{
                 targetTag[i].disabled = false;
                 clearTimeout(timer);
+                if (isOven){
+                    document.getElementById('divFour').className = "card-header text-white bg-dark";
+                    document.getElementById('buttonFour').className = "delayOnOven mt-2 btn btn-dark";
+                    document.getElementById('Four').className = "card border border-dark mb-3";
+                }
             }, (delayTime * 1000));
         }, false);
     }
