@@ -61,7 +61,26 @@ function burnPizzas(){
 }
 
 function dispScore(){
+    var restes ="";
     document.getElementById('score').style.display = 'block';
-    document.getElementById('score').value = score;
-    var restes = document.getElementById('');
+    document.getElementById('score').innerHTML = calculScore();
+    document.getElementById('pizza').innerHTML= pizzaBurned;
+    if (tomatePrepared > 0){
+        restes = "Tomates : "+tomatePrepared;
+    }
+    if (ananasPrepared >0){
+        restes += "<br/>Ananas :  "+ananasPrepared;
+    }
+    if (jambonPrepared >0){
+        restes += "<br/>Jambon : "+jambonPrepared;
+    }
+    document.getElementById('reste').innerHTML = restes;
+
+}
+
+function calculScore(){
+    score = pizzaBurned * 10;
+    score = score - pizzaPrepared *3;
+    score = score - jambonPrepared - ananasPrepared;
+    return score;
 }
