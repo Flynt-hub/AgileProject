@@ -7,6 +7,7 @@ var jambonPrepared = 0;
 var ananasPrepared = 0;
 var pizzaPrepared = 0;
 var pizzaBurned = 0;
+let gameTimer = null ;
 
 
 function start(){
