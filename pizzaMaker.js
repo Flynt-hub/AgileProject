@@ -1,3 +1,5 @@
+addEventListener('load', setEvents, false) ;
+
 var pseudo = document.getElementById("pseudo");
 var score = 0;
 var tomatePrepared = 0;
@@ -83,4 +85,24 @@ function calculScore(){
     score = score - pizzaPrepared *3;
     score = score - jambonPrepared - ananasPrepared;
     return score;
+}
+
+function setEvents(e)
+{
+    setDelayOnInputs();
+}
+
+function setDelayOnInputs()
+{
+    let inputsNumber = document.getElementsByClassName('ingredientNumberInput');
+    for(let i = 0; i < inputsNumber.length; ++i)
+    {
+        inputsNumber[i].addEventListener('click', ()=>{
+            inputsNumber[i].disabled = true;
+            let timer = setTimeout(()=>{
+                inputsNumber[i].disabled = false;
+                clearTimeout(timer);
+            }, 1000);
+        }, false);
+    }
 }
