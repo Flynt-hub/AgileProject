@@ -1,12 +1,18 @@
 addEventListener('load', setEvents, false) ;
 
-var pseudo = document.getElementById("pseudo");
+var pseudo = "Yoda";
 var score = 0;
 var tomatePrepared = 0;
 var jambonPrepared = 0;
 var ananasPrepared = 0;
 var pizzaPrepared = 0;
 var pizzaBurned = 0;
+
+function start(){
+    pseudo = document.getElementById("pseudo");
+    document.getElementById("Game").style.display = "block";
+    document.getElementById("Start").style.display = "none";
+}
 
 function addIngredients(){
     if(document.getElementById("tomate").checked){
