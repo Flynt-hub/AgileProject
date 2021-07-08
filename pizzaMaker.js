@@ -7,14 +7,15 @@ var jambonPrepared = 0;
 var ananasPrepared = 0;
 var pizzaPrepared = 0;
 var pizzaBurned = 0;
+
+
 function startGame(){
     document.getElementById('Start').style.display = 'none';
     pseudo = document.getElementById("pseudo").value;
     document.getElementById('dispPseudo').innerHTML = pseudo;
     document.getElementById('Game').style.display = 'block';
-
-
 }
+
 function addIngredients(){
     if(document.getElementById("tomate").checked){
         tomatePrepared += parseInt(document.getElementById("tomate").value);
@@ -60,9 +61,11 @@ function burnPizzas(){
     var pizza = parseInt(document.getElementById("pizzaToBurn").value);
 
     if( pizza >0 && pizza <= pizzaPrepared){
+        document.getElementById('divFour').className = "card border border-warnig mb-3";
         pizzaBurned = pizza;
         pizzaPrepared -= pizzaBurned;
         document.getElementById("hawaienBurned").innerHTML = pizzaBurned;
+       // document.getElementById('Four').className = "card border border-danger mb-3";
     }
     else{
         alert("Vous n'avez pas autant de pizza prête !");
