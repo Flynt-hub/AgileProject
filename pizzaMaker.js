@@ -10,11 +10,18 @@ var pizzaBurned = 0;
 let gameTimer = null ;
 
 
+
 function start(){
+    const maxTime = 4000 ;
+    const minTime = 2000 ;
+
     pseudo = document.getElementById("pseudo").value;
     document.getElementById("dispPseudo").innerText = pseudo;
     document.getElementById("Game").style.display = "block";
     document.getElementById("Start").style.display = "none";
+    gameTimer = setTimeout(()=>{
+        //@Yanis met ta fonction à la place de celle ci
+    }, Math.floor(Math.random() * ( maxTime - minTime ) ) + maxTime ) ;
 }
 
 function addIngredients(){
